@@ -24,8 +24,7 @@ namespace HideForestKiosk
                 FK.FindChildRecursive("PurchaseButton").gameObject,
                 FK.FindChildRecursive("CreatorCodeMonitor").gameObject,
                 FK.FindChildRecursive("FrontPanel_Center").gameObject,
-                FK.FindChildRecursive("rig").gameObject,
-                FK.FindChildRecursive("FungalInfection Prefab").gameObject
+                FK.FindChildRecursive("rig").gameObject
             };
             foreach (var g in ds)
             {
@@ -34,3 +33,4 @@ namespace HideForestKiosk
         }
     }
 }
+
