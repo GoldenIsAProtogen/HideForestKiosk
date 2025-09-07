@@ -34,8 +34,9 @@ namespace HideForestKiosk
             {
                 g.SetActive(false);
             }
-            Destroy(CM(167332));
-            Destroy(CM(166906));
+            Destroy(CM(170060));
+            Destroy(CM(169634));
         }
     }
 }
+
