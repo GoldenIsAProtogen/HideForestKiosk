@@ -10,7 +10,8 @@ namespace HideForestKiosk
         private List<GameObject> ds = new List<GameObject>();
         void Start() => GorillaTagger.OnPlayerSpawned(GS);
 
-        public UnityEngine.Object CM(int iid)
+        // Thanks to DecalFree <3
+        public UnityEngine.Object CM(int iid) 
         {
             return (UnityEngine.Object)typeof(UnityEngine.Object)
                 .GetMethod("FindObjectFromInstanceID", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static)
@@ -39,4 +40,5 @@ namespace HideForestKiosk
         }
     }
 }
+
 
