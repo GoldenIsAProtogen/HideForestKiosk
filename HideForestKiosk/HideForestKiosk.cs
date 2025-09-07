@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using BepInEx;
 using UnityEngine;
 
@@ -8,9 +8,13 @@ namespace HideForestKiosk
     public class HideForestKiosk : BaseUnityPlugin
     {
         private List<GameObject> ds = new List<GameObject>();
-        void Start()
+        void Start() => GorillaTagger.OnPlayerSpawned(GS);
+
+        public UnityEngine.Object CM(int iid)
         {
-            GorillaTagger.OnPlayerSpawned(GS);
+            return (UnityEngine.Object)typeof(UnityEngine.Object)
+                .GetMethod("FindObjectFromInstanceID", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static)
+                .Invoke(null, new object[] { iid });
         }
 
         void GS()
@@ -30,7 +34,8 @@ namespace HideForestKiosk
             {
                 g.SetActive(false);
             }
+            Destroy(CM(167332));
+            Destroy(CM(166906));
         }
     }
 }
-
