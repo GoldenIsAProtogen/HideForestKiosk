@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using BepInEx;
+using BepInEx.Configuration;
 using UnityEngine;
 
 namespace HideForestKiosk
@@ -8,10 +9,15 @@ namespace HideForestKiosk
     public class HideForestKiosk : BaseUnityPlugin
     {
         private List<GameObject> ds = new List<GameObject>();
-        void Start() => GorillaTagger.OnPlayerSpawned(GS);
+        private ConfigEntry<bool> creatorboard;
+        void Start()
+        {
+            creatorboard = Config.Bind("CreatorBoard", "Enabled", false, "CreatorBoard Enabled");
+            GorillaTagger.OnPlayerSpawned(GS);
+        }
 
         // Thanks to DecalFree <3
-        public UnityEngine.Object CM(int iid) 
+        public UnityEngine.Object CM(int iid)
         {
             return (UnityEngine.Object)typeof(UnityEngine.Object)
                 .GetMethod("FindObjectFromInstanceID", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static)
@@ -29,17 +35,19 @@ namespace HideForestKiosk
                 FK.FindChildRecursive("PurchaseButton").gameObject,
                 FK.FindChildRecursive("CreatorCodeMonitor").gameObject,
                 FK.FindChildRecursive("FrontPanel_Center").gameObject,
-                FK.FindChildRecursive("rig").gameObject
+                FK.FindChildRecursive("rig").gameObject,
+                FK.FindChildRecursive("SteampunkJacket Functional Prefab").gameObject,
+                FK.FindChildRecursive("RC_ShipSteamPunk_FBX").gameObject
             };
             foreach (var g in ds)
             {
                 g.SetActive(false);
             }
-            Destroy(CM(170244));
-            Destroy(CM(170176));
+            if (creatorboard.Value)
+            {
+                Destroy(CM(170526));
+                Destroy(CM(171440));
+            }
         }
     }
 }
-
-
-
