@@ -46,10 +46,9 @@ namespace HideForestKiosk
             }
             if (creatorboard.Value)
             {
-                Destroy(CM(170526));
-                Destroy(CM(171440));
+                Destroy(CM(175210));
+                Destroy(CM(174130));
             }
         }
     }
 }
-
