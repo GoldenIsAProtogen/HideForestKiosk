@@ -36,8 +36,9 @@ namespace HideForestKiosk
                 FK.FindChildRecursive("CreatorCodeMonitor").gameObject,
                 FK.FindChildRecursive("FrontPanel_Center").gameObject,
                 FK.FindChildRecursive("rig").gameObject,
-                FK.FindChildRecursive("SteampunkJacket Functional Prefab").gameObject,
-                FK.FindChildRecursive("RC_ShipSteamPunk_FBX").gameObject
+                FK.FindChildRecursive("NightmareHorsey_Wardrobe").gameObject,
+                FK.FindChildRecursive("HeadlessHorsemanHead_Wardrobe Variant").gameObject,
+                FK.FindChildRecursive("HeadlessHorsemanSuit_Functional Variant").gameObject
             };
             foreach (var g in ds)
             {
@@ -51,3 +52,4 @@ namespace HideForestKiosk
         }
     }
 }
+
