@@ -29,16 +29,12 @@ namespace HideForestKiosk
             Transform FK = GameObject.Find("LocalObjects_Prefab").transform.FindChildRecursive("ForestKiosk_Anchor");
             ds = new List<GameObject>()
             {
-                FK.transform.FindChildRecursive("gorilla_new").GetChild(2).gameObject,
+                //FK.transform.FindChildRecursive("gorilla_new").GetChild(2).gameObject,
                 FK.FindChildRecursive("EndCap_PackSign").gameObject,
                 FK.FindChildRecursive("EndCap_BackgroundTexture").gameObject,
                 FK.FindChildRecursive("PurchaseButton").gameObject,
                 FK.FindChildRecursive("CreatorCodeMonitor").gameObject,
-                FK.FindChildRecursive("FrontPanel_Center").gameObject,
-                FK.FindChildRecursive("rig").gameObject,
-                FK.FindChildRecursive("NightmareHorsey_Wardrobe").gameObject,
-                FK.FindChildRecursive("HeadlessHorsemanHead_Wardrobe Variant").gameObject,
-                FK.FindChildRecursive("HeadlessHorsemanSuit_Functional Variant").gameObject
+                FK.FindChildRecursive("FrontPanel_Center").gameObject
             };
             foreach (var g in ds)
             {
@@ -52,3 +48,4 @@ namespace HideForestKiosk
         }
     }
 }
+
