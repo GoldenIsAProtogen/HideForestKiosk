@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using BepInEx;
-using BepInEx.Configuration;
 using UnityEngine;
 
 namespace HideForestKiosk
@@ -9,20 +8,8 @@ namespace HideForestKiosk
     public class HideForestKiosk : BaseUnityPlugin
     {
         private List<GameObject> ds = new List<GameObject>();
-        private ConfigEntry<bool> creatorboard;
-        void Start()
-        {
-            creatorboard = Config.Bind("CreatorBoard", "Enabled", false, "CreatorBoard Enabled");
-            GorillaTagger.OnPlayerSpawned(GS);
-        }
 
-        // Thanks to DecalFree <3
-        public UnityEngine.Object CM(int iid)
-        {
-            return (UnityEngine.Object)typeof(UnityEngine.Object)
-                .GetMethod("FindObjectFromInstanceID", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static)
-                .Invoke(null, new object[] { iid });
-        }
+        void Start() => GorillaTagger.OnPlayerSpawned(GS);
 
         void GS()
         {
@@ -34,18 +21,27 @@ namespace HideForestKiosk
                 FK.FindChildRecursive("EndCap_BackgroundTexture").gameObject,
                 FK.FindChildRecursive("PurchaseButton").gameObject,
                 FK.FindChildRecursive("CreatorCodeMonitor").gameObject,
-                FK.FindChildRecursive("FrontPanel_Center").gameObject
+                FK.FindChildRecursive("FrontPanel_Center").gameObject,
+                FK.FindChildRecursive("ShirtStormElectric Functional Prefab").gameObject,
+                FK.FindChildRecursive("PantsStormElectric Wardrobe Variant").gameObject,
+                FK.FindChildRecursive("GlovesStormElectric_Functional_Variant").gameObject
             };
             foreach (var g in ds)
             {
                 g.SetActive(false);
             }
-            if (creatorboard.Value)
+
+            string[] extraObjs =
             {
-                Destroy(CM(175210));
-                Destroy(CM(174130));
+                "UnityTempFile-4cabead2c1674d749955c629707e1820 (combined by EdMeshCombiner)"
+            };
+
+            foreach (string name in extraObjs)
+            {
+                var obj = GameObject.Find(name);
+                if (obj != null)
+                    obj.SetActive(false);
             }
         }
     }
 }
-
