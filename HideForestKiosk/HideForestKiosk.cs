@@ -33,7 +33,7 @@ namespace HideForestKiosk
 
             string[] extraObjs =
             {
-                "UnityTempFile-4cabead2c1674d749955c629707e1820 (combined by EdMeshCombiner)"
+                "UnityTempFile-a28a1e327f0780c4aaa43cd80e51f7c3 (combined by EdMeshCombiner)"
             };
 
             foreach (string name in extraObjs)
@@ -45,3 +45,4 @@ namespace HideForestKiosk
         }
     }
 }
+
